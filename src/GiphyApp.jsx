@@ -8,6 +8,10 @@ function GiphyApp ({ title = 'Título de ejemplo' }) {
 
   const handleAddCategory = (category) => {
     setCategories([...categories, { id: Date.now(), category }])
+
+    fetch('https://api.giphy.com/v1/gifs/search?api_key=qK8MBkCh3Z5PgUM0eH7CWxWeirEIkWnO&q=matrix&limit=1')
+    .then(resp=>resp.json())
+    .then(console.log)
   }
 
   return (
