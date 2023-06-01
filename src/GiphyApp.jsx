@@ -2,16 +2,20 @@ import React, { useState } from 'react'
 import { CategoriesList, AddCategory } from './components'
 import PropTypes from 'prop-types'
 import './App.css'
+import categoryData from './mocks/giphy-results.json'
+import categoryItem from './mocks/giphy-item.json'
 
 function GiphyApp ({ title = 'Título de ejemplo' }) {
-  const [categories, setCategories] = useState([])
+  const { data } = categoryData
+  const [categories, setCategories] = useState(data)
 
   const handleAddCategory = (category) => {
-    setCategories([...categories, { id: Date.now(), category }])
-
-    fetch('https://api.giphy.com/v1/gifs/search?api_key=qK8MBkCh3Z5PgUM0eH7CWxWeirEIkWnO&q=matrix&limit=1')
-    .then(resp=>resp.json())
-    .then(console.log)
+    const categoryLowerCase = category.toLocaleLowerCase()
+    // for (const cat of categories) {
+    //   if (cat.category.toLocaleLowerCase() === categoryLowerCase) return
+    // }
+    if (categories.some(cat => cat.title.toLocaleLowerCase() === categoryLowerCase)) return
+    setCategories([...categories, categoryItem])
   }
 
   return (

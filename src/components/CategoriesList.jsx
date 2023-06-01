@@ -3,7 +3,7 @@ export function CategoriesList ({ categoriesAll = [] }) {
   return (
     <>
       {
-        categoriesAll?.map(item => <li key={item.id}>{item.category}</li>)
+        categoriesAll?.map(item => <li key={item.id}>{item.title}</li>)
       }
     </>
   )

@@ -11,7 +11,9 @@ export function AddCategory ({ onAddCategory }) {
 
   const handleSubmit = e => {
     e.preventDefault()
-    onAddCategory(search)
+    if (search.trim().length === 0) return
+    onAddCategory(search.trim())
+    setSearch('')
   }
 
   return (
@@ -20,8 +22,8 @@ export function AddCategory ({ onAddCategory }) {
       <input
         type='search'
         id='search'
-        placeholder='Matrix'
         required
+        placeholder='Matrix'
         value={search}
         onChange={handleChange}
       />
