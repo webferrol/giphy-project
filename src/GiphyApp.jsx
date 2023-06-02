@@ -11,9 +11,6 @@ function GiphyApp ({ title = 'Título de ejemplo' }) {
 
   const handleAddCategory = (category) => {
     const categoryLowerCase = category.toLocaleLowerCase()
-    // for (const cat of categories) {
-    //   if (cat.category.toLocaleLowerCase() === categoryLowerCase) return
-    // }
     if (categories.some(cat => cat.title.toLocaleLowerCase() === categoryLowerCase)) return
     setCategories([...categories, categoryItem])
   }
