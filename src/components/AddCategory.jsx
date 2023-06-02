@@ -26,6 +26,7 @@ export function AddCategory ({ onAddCategory }) {
         placeholder='Matrix'
         value={search}
         onChange={handleChange}
+        className='border border-black rounded'
       />
     </form>
   )

@@ -1,9 +1,17 @@
 import PropTypes from 'prop-types'
+import { GifGrid } from './GifGrid'
 export function CategoriesList ({ categoriesAll = [] }) {
   return (
     <>
       {
-        categoriesAll?.map(item => <li key={item.id}>{item.title}</li>)
+        categoriesAll?.map(
+          ({ id, category }) => (
+            <section key={id}>
+              <h2>{category}</h2>
+              {/* Van todos los gifs de la categoría */}
+              <GifGrid category={category} />
+            </section>
+          ))
       }
     </>
   )

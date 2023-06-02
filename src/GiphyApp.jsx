@@ -1,18 +1,16 @@
 import React, { useState } from 'react'
 import { CategoriesList, AddCategory } from './components'
 import PropTypes from 'prop-types'
+import uuid4 from 'uuid4'
 import './App.css'
-import categoryData from './mocks/giphy-results.json'
-import categoryItem from './mocks/giphy-item.json'
 
 function GiphyApp ({ title = 'Título de ejemplo' }) {
-  const { data } = categoryData
-  const [categories, setCategories] = useState(data)
+  const [categories, setCategories] = useState([])
 
   const handleAddCategory = (category) => {
     const categoryLowerCase = category.toLocaleLowerCase()
-    if (categories.some(cat => cat.title.toLocaleLowerCase() === categoryLowerCase)) return
-    setCategories([...categories, categoryItem])
+    if (categories.some(cat => cat.category.toLocaleLowerCase() === categoryLowerCase)) return
+    setCategories([{ id: uuid4(), category }, ...categories])
   }
 
   return (
