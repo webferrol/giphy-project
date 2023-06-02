@@ -17,8 +17,8 @@ export function AddCategory ({ onAddCategory }) {
   }
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)} role='search' style={{ display: 'flex', gap: '.5rem' }}>
-      <label htmlFor='search'>Categorías</label>
+    <form className='flex flex-col items-center gap-3' onSubmit={(e) => handleSubmit(e)} role='search'>
+      <label htmlFor='search' className='font-bold text-red-400 uppercase'>Categorías</label>
       <input
         type='search'
         id='search'
@@ -26,7 +26,7 @@ export function AddCategory ({ onAddCategory }) {
         placeholder='Matrix'
         value={search}
         onChange={handleChange}
-        className='border border-black rounded'
+        className='w-full px-2 py-3 border border-black rounded'
       />
     </form>
   )

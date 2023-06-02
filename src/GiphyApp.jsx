@@ -15,7 +15,7 @@ function GiphyApp ({ title = 'Título de ejemplo' }) {
 
   return (
     <>
-      <h1>{title}</h1>
+      <h1 className='my-5 text-5xl text-center lg:text-7xl'>{title}</h1>
       <AddCategory onAddCategory={handleAddCategory} />
       <CategoriesList categoriesAll={categories} />
     </>

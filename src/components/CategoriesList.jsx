@@ -7,7 +7,7 @@ export function CategoriesList ({ categoriesAll = [] }) {
         categoriesAll?.map(
           ({ id, category }) => (
             <section key={id}>
-              <h2>{category}</h2>
+              <h2 className='py-5 font-medium text-red-400 uppercase'>{category}</h2>
               {/* Van todos los gifs de la categoría */}
               <GifGrid category={category} />
             </section>
