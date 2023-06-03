@@ -1,13 +1,13 @@
-import React from 'react'
+import PropTypes from 'prop-types'
 
-function Bars () {
+function Bars ({ fill = '#000' }) {
   return (
     <svg
       width={135}
       height={140}
       viewBox='0 0 135 140'
       xmlns='http://www.w3.org/2000/svg'
-      fill='#000'
+      fill={fill}
     >
       <rect y={10} width={15} height={120} rx={6}>
         <animate
@@ -102,6 +102,10 @@ function Bars () {
     </svg>
 
   )
+}
+
+Bars.propTypes = {
+  fill: PropTypes.string
 }
 
 export default Bars
