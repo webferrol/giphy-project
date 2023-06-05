@@ -1,27 +1,9 @@
 import PropTypes from 'prop-types'
-import { getGifs } from '../helpers/getgifs'
-import { useState, useEffect } from 'react'
 import Bars from './Bars'
+import { useGifs } from '../hooks/useGifs'
 
 export function GifGrid ({ category }) {
-  const [data, setData] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
-  const [offset, setOffset] = useState(0)
-
-  const handleMore = e => {
-    e.preventDefault()
-    setOffset(offset + 4)
-  }
-
-  useEffect(function () {
-    const fetchData = async () => {
-      const newData = await getGifs(category, offset)
-      setData([...data, ...newData])
-      setIsLoading(false)
-    }
-    fetchData()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [offset])
+  const { isLoading, data, handleMore } = useGifs(category, 10)
 
   if (isLoading) {
     return (
