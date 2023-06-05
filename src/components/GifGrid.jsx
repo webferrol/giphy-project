@@ -6,14 +6,22 @@ import Bars from './Bars'
 export function GifGrid ({ category }) {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const [offset, setOffset] = useState(0)
+
+  const handleMore = e => {
+    e.preventDefault()
+    setOffset(offset + 4)
+  }
 
   useEffect(function () {
     const fetchData = async () => {
-      setData(await getGifs(category))
+      const newData = await getGifs(category, offset)
+      setData([...data, ...newData])
       setIsLoading(false)
     }
     fetchData()
-  }, [category])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [offset])
 
   if (isLoading) {
     return (
@@ -46,6 +54,7 @@ export function GifGrid ({ category }) {
           )
         })
       }
+      <button onClick={handleMore} className='flex items-center justify-center px-4 py-2 text-white bg-blue-500 rounded'>Más</button>
     </div>
   )
 }
