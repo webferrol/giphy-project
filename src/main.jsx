@@ -7,8 +7,6 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* <App /> */}
     <GiphyApp title='Buscador Gifs' />
-    {/* <ButtonApp /> */}
   </React.StrictMode>
 )
