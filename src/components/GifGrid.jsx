@@ -3,7 +3,7 @@ import Bars from './Bars'
 import { useGifs } from '../hooks/useGifs'
 
 export function GifGrid ({ category }) {
-  const { isLoading, data, handleMore } = useGifs(category, 10)
+  const { isLoading, data, handleMore } = useGifs(category, 3)
 
   if (isLoading) {
     return (
